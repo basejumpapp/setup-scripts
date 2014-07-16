@@ -1,0 +1,10 @@
+#!/bin/bash
+
+AUTHORIZED_KEYS="./authorized_keys"
+AUTHORIZED_KEYS_BACKUP="./authorized_keys.orig"
+
+# make a backup
+cp $AUTHORIZED_KEYS $AUTHORIZED_KEYS_BACKUP
+
+# remove the key
+fgrep -v "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDsCN7P6FfrreK/ZeeZxc9YaYPDoYUAUdr4NK/gUzuK3XWEwx5wf8YAp7K0c0ziuMNXaigYwKiAoWGKM89eXZEx5GSKhVHCVOHY85wFn7b1UjTPUcPIwtQfjbfG0fT6blFo046XmilQuMQEyxhRWmpuJ8ogXvYNaPnaglrkPQ/FRr98QlMNn4YRvhC2mEyTRT+bFlprTiMZz1Y92eV3dN1vEzGav6c048pXcldCRjqYboT5Qzq5NTKMwKGRPwFsbvpKwdYtSm7bMAa5pnRfCGtulUDuoDdnotRRO60f9rHaIS+j25q3dO8sNGnhUkzzC6j1UoDA7Q39KSbi7dTFwVu5 basejump@basejumpit.com" $AUTHORIZED_KEYS_BACKUP >$AUTHORIZED_KEYS
