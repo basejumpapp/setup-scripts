@@ -1,10 +1,44 @@
-<html>
-<body>
-<p>
-To install, do
-</p>
-<p>
-curl -s https://basejumpapp.github.io/setup-scripts/grant-basejump-access.sh | sudo sh
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Basejump Access Script</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body class="text-center">
+    <h1>Basejump Access Script</h1>
+    <p>
+    To grant basejump access on your server, run the following on your server:
+    </p>
+    <p><span data-role="selectable" style="border-bottom: 1px dashed #9C9CC9;">curl -s https://basejumpapp.github.io/setup-scripts/grant-basejump-access.sh | sudo sh</span></p>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+
+function selectElementText(el, win) {
+    win = win || window;
+    var doc = win.document, sel, range;
+    if (win.getSelection && doc.createRange) {
+        sel = win.getSelection();
+        range = doc.createRange();
+        range.selectNodeContents(el);
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (doc.body.createTextRange) {
+        range = doc.body.createTextRange();
+        range.moveToElementText(el);
+        range.select();
+    }
+}
+
+    $('span[data-role=selectable]').on('click', function(e) {
+        selectElementText(this, window);
+    });
+    </script>
 </body>
 </html>
