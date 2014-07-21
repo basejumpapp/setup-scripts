@@ -21,4 +21,4 @@ do_install grant-basejump-access.sh
 
 
 # done
-echo "All done. Thanks for using Basejump."
+echo "Scripts downloaded and installed."

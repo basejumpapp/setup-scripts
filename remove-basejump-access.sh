@@ -7,6 +7,7 @@ BASEJUMP_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDsCN7P6FfrreK/ZeeZxc9
 
 
 # explain and check before proceeding
+echo ""
 read -r -p "This script will remove ssh access granted to the basejump installer.  It will modify the file ${AUTHORIZED_KEYS}.  Do you wish to proceed? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY])
