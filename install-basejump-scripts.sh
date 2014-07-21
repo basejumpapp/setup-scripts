@@ -17,7 +17,7 @@ function do_install() {
 
 
 do_install remove-basejump-access.sh
-do_install install-basejump-access.sh
+do_install grant-basejump-access.sh
 
 
 # done
