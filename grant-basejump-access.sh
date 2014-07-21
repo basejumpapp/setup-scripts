@@ -8,7 +8,7 @@ BASEJUMP_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDsCN7P6FfrreK/ZeeZxc9
 # explain and check before proceeding
 read -r -p "This script will grant ssh access to user root for the basejump installer. It will modify the file at ${AUTHORIZED_KEYS}.  Do you wish to proceed? [y/N] " response
 case $response in
-    [yY][eE][sS]|[yY]) 
+    [yY][eE][sS]|[yY])
         echo "Ok. Will do."
         ;;
     *)
@@ -22,7 +22,7 @@ esac
 if [ ! -e $AUTHORIZED_KEYS ]; then
     read -r -p "No ${AUTHORIZED_KEYS} file was found.  Should I make one? [y/N] " response
     case $response in
-        [yY][eE][sS]|[yY]) 
+        [yY][eE][sS]|[yY])
             echo "Ok. Making the file."
             mkdir -p $AUTHORIZED_KEYS_DIR
             touch $AUTHORIZED_KEYS
