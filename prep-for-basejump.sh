@@ -51,7 +51,7 @@ docker --version 2>/dev/null
 if [ "$?" -ne "0" ]; then
     echo "Docker not found.  Installing docker.";
     if [[ $IS_CENTOS ]]; then
-        yum -y --enablerepo=epel install docker-io
+        yum -y --enablerepo=epel-testing install docker-io
     fi;
     if [[ $IS_AMAZON ]]; then
         yum -y install docker
