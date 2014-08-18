@@ -56,6 +56,9 @@ if [ "$?" -ne "0" ]; then
     if [[ $IS_AMAZON ]]; then
         yum -y install docker
     fi;
+
+    # start docker service
+    chkconfig docker on && service docker start
 fi;
 
 # make sure rsync is protocol version 31 or greater
