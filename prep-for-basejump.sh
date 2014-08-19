@@ -61,6 +61,23 @@ if [ "$?" -ne "0" ]; then
     chkconfig docker on && service docker start
 fi;
 
+# if this is a Digital Ocean server, make sure there is a swapfile
+if [[ $IS_CENTOS ]]; then
+    SWAP_EXISTS=$(swapon -s | grep -v Filename)
+    if [ -z "$SWAP_EXISTS" ]; then
+        # make swap
+        echo "creating swapfile"
+        dd if=/dev/zero of=/swapfile bs=1024 count=512k
+        mkswap /swapfile
+        swapon /swapfile
+        chown root:root /swapfile && chmod 0600 /swapfile
+
+        # append to fstab
+        echo "Adding swapfile to /etc/fstab"
+        echo "/swapfile          swap            swap    defaults        0 0" >> /etc/fstab
+    fi
+fi
+
 # make sure rsync is protocol version 31 or greater
 PROTOCOL_VERSION=$(rsync --version | head -n 1 | awk '{print $6}')
 if [ "$PROTOCOL_VERSION" -lt 31 ]; then
